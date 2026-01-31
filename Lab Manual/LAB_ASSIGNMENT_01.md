@@ -395,4 +395,4 @@ Query OK, 0 rows affected (0.013 sec)
 ---
 
 > **Submitted By:** Umar Iqbal  
-> **Course:** DBMS Laboratory
+> **Course:** DBMS Lab
