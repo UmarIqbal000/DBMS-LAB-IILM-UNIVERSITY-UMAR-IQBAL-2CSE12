@@ -14,7 +14,8 @@
 DBMS LAB/
 ├── 📂 Lab Manual/
 │   ├── LAB_ASSIGNMENT_01.md    ✅ DDL & DML Operations
-│   └── LAB_ASSIGNMENT_02.md    ✅ Data Retrieval Queries
+│   ├── LAB_ASSIGNMENT_02.md    ✅ Data Retrieval Queries
+│   └── LAB_ASSIGNMENT_03.md    ✅ Advanced Retrieval & Sorting
 │
 ├── 📂 Practice Set/
 │   ├── Practice_Set_01.md      ✅ Database & Table Creation
@@ -32,6 +33,7 @@ DBMS LAB/
 |---|------------|-------|--------|
 | 1 | [LAB_ASSIGNMENT_01](Lab%20Manual/LAB_ASSIGNMENT_01.md) | DDL & DML Operations (CREATE, INSERT, UPDATE, DELETE, ALTER, DROP) | ✅ Completed |
 | 2 | [LAB_ASSIGNMENT_02](Lab%20Manual/LAB_ASSIGNMENT_02.md) | Data Retrieval (SELECT, DISTINCT, WHERE, IN, BETWEEN, LIKE) | ✅ Completed |
+| 3 | [LAB_ASSIGNMENT_03](Lab%20Manual/LAB_ASSIGNMENT_03.md) | Advanced Retrieval (ORDER BY, Pattern Matching, NULL Handling) | ✅ Completed |
 
 ---
 
