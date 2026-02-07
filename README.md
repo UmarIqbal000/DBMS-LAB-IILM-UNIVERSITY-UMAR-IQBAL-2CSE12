@@ -117,8 +117,9 @@ SHOW TABLES;
 
 - [x] Lab Assignment 01 - DDL & DML Operations
 - [x] Lab Assignment 02 - Data Retrieval Queries
-- [ ] Lab Assignment 03 - *(Coming Soon)*
+- [x] Lab Assignment 03 - Advanced Retrieval & Sorting
 - [ ] Lab Assignment 04 - *(Coming Soon)*
+- [ ] Lab Assignment 05 - *(Coming Soon)*
 
 ---
 
