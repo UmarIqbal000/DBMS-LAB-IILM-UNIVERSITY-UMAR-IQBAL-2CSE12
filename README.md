@@ -21,7 +21,7 @@ DBMS LAB/
 │   ├── Practice_Set_02.md      ✅ Constraints & Foreign Keys
 │   └── Practice_Set_03.md      ✅ Advanced Queries
 │
-└── README.md                   📖 You are here!
+└── README.md                   
 ```
 
 ---
@@ -131,4 +131,4 @@ SHOW TABLES;
 ---
 
 > **Last Updated:** February 2026  
-> **IILM University** | DBMS Lab
+> **IILM University, Greater Noida** | DBMS Lab
