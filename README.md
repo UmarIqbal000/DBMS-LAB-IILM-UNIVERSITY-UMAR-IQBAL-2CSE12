@@ -15,7 +15,8 @@ DBMS LAB/
 ├── 📂 Lab Manual/
 │   ├── LAB_ASSIGNMENT_01.md    ✅ DDL & DML Operations
 │   ├── LAB_ASSIGNMENT_02.md    ✅ Data Retrieval Queries
-│   └── LAB_ASSIGNMENT_03.md    ✅ Advanced Retrieval & Sorting
+│   ├── LAB_ASSIGNMENT_03.md    ✅ Advanced Retrieval & Sorting
+│   └── LAB_ASSIGNMENT_04.md    ✅ String Functions, Computed Columns & DML
 │
 ├── 📂 Practice Set/
 │   ├── Practice_Set_01.md      ✅ Database & Table Creation
@@ -34,6 +35,7 @@ DBMS LAB/
 | 1 | [LAB_ASSIGNMENT_01](Lab%20Manual/LAB_ASSIGNMENT_01.md) | DDL & DML Operations (CREATE, INSERT, UPDATE, DELETE, ALTER, DROP) | ✅ Completed |
 | 2 | [LAB_ASSIGNMENT_02](Lab%20Manual/LAB_ASSIGNMENT_02.md) | Data Retrieval (SELECT, DISTINCT, WHERE, IN, BETWEEN, LIKE) | ✅ Completed |
 | 3 | [LAB_ASSIGNMENT_03](Lab%20Manual/LAB_ASSIGNMENT_03.md) | Advanced Retrieval (ORDER BY, Pattern Matching, NULL Handling) | ✅ Completed |
+| 4 | [LAB_ASSIGNMENT_04](Lab%20Manual/LAB_ASSIGNMENT_04.md) | String Functions, Computed Columns, UPDATE & Date Filtering | ✅ Completed |
 
 ---
 
@@ -118,7 +120,7 @@ SHOW TABLES;
 - [x] Lab Assignment 01 - DDL & DML Operations
 - [x] Lab Assignment 02 - Data Retrieval Queries
 - [x] Lab Assignment 03 - Advanced Retrieval & Sorting
-- [ ] Lab Assignment 04 - *(Coming Soon)*
+- [x] Lab Assignment 04 - String Functions, Computed Columns & DML
 - [ ] Lab Assignment 05 - *(Coming Soon)*
 
 ---
