@@ -13,7 +13,7 @@ Perform advanced SQL queries on the **EMPLOYEE** table using date functions, pat
 1. Display employees who joined before 30th June 80 or after 31st Dec 81
 2. Display employees whose names have second alphabet A
 3. Display employees whose name is exactly five characters in length
-4. Display employees whose names have second alphabet A in their names
+4. Display the name of the employees whose name have second last letter is A
 5. Display employees who are not working as salesman or clerk or analyst
 6. Display employee name along with annual salary (sal*12), ordered by highest salary first
 7. Display name, sal, hra, pf, da, totalsal for each employee with computed components
@@ -161,29 +161,33 @@ WHERE LENGTH(ENAME) = 5;
 
 ---
 
-### Problem 4: Display Employees Whose Names Have Second Alphabet A in Their Names
+### Problem 4: Display the Name of the Employees Whose Name Have Second Last Letter is A
 
-**Objective:** This is the same as Problem 2 — retrieve employees where the second character is 'A'.
+**Objective:** Retrieve employees where the second-to-last character (second last letter) of their name is 'A'.
 
 ```sql
 SELECT ENAME
 FROM EMPLOYEE
-WHERE SUBSTRING(ENAME, 2, 1) = 'A';
+WHERE ENAME LIKE '%A_';
 ```
+
+**Explanation:** The pattern `%A_` means:
+- `%` = any sequence of characters (including empty)
+- `A` = the letter 'A' at the second last position
+- `_` = exactly one character (the last character)
 
 **Output:**
 ```
 +--------+
 | ENAME  |
 +--------+
-| WARD   |
-| MARTIN |
-| JAMES  |
+| BLAKE  |
+| ADAMS  |
 +--------+
-3 rows in set (0.001 sec)
+2 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 3 employees: WARD, MARTIN, JAMES (same as Problem 2, solved using `SUBSTRING` function as an alternative approach)
+> ✅ **Result:** 2 employees have 'A' as their second last letter: **BLAKE** (BLAK**E** → A is 4th of 5), **ADAMS** (ADAM**S** → A is 4th of 5)
 
 ---
 
@@ -422,7 +426,7 @@ WHERE LENGTH(CAST(SAL AS UNSIGNED)) >= 3;
 | 1 | Employees joined before June 80 or after Dec 81 | `WHERE` with `OR` | 3 |
 | 2 | Names with second alphabet A | `LIKE '_A%'` | 3 |
 | 3 | Names exactly 5 characters long | `LENGTH()` | 8 |
-| 4 | Names with second alphabet A (alternative) | `SUBSTRING()` | 3 |
+| 4 | Names with second last letter A | `LIKE '%A_'` | 2 |
 | 5 | Not salesman, clerk, or analyst | `NOT IN` | 4 |
 | 6 | Annual salary, highest first | `ORDER BY DESC` | 14 |
 | 7 | Salary components (HRA, PF, DA, TotalSal) | Computed columns | 14 |
@@ -437,6 +441,7 @@ WHERE LENGTH(CAST(SAL AS UNSIGNED)) >= 3;
 | Concept | Purpose | Example |
 |---------|---------|---------|
 | `LIKE '_A%'` | Pattern: second character match | `WHERE ENAME LIKE '_A%'` |
+| `LIKE '%A_'` | Pattern: second last character match | `WHERE ENAME LIKE '%A_'` |
 | `LENGTH()` | Returns string length | `WHERE LENGTH(ENAME) = 5` |
 | `SUBSTRING()` | Extracts part of a string | `SUBSTRING(ENAME, 2, 1)` |
 | `NOT IN` | Excludes values from a list | `JOB NOT IN ('CLERK', 'SALESMAN')` |
