@@ -16,7 +16,8 @@ DBMS LAB/
 │   ├── LAB_ASSIGNMENT_01.md    ✅ DDL & DML Operations
 │   ├── LAB_ASSIGNMENT_02.md    ✅ Data Retrieval Queries
 │   ├── LAB_ASSIGNMENT_03.md    ✅ Advanced Retrieval & Sorting
-│   └── LAB_ASSIGNMENT_04.md    ✅ String Functions, Computed Columns & DML
+│   ├── LAB_ASSIGNMENT_04.md    ✅ String Functions, Computed Columns & DML
+│   └── LAB_ASSIGNMENT_05.md    ✅ Aggregate Functions & String Functions
 │
 ├── 📂 Practice Set/
 │   ├── Practice_Set_01.md      ✅ Database & Table Creation
@@ -36,6 +37,7 @@ DBMS LAB/
 | 2 | [LAB_ASSIGNMENT_02](Lab%20Manual/LAB_ASSIGNMENT_02.md) | Data Retrieval (SELECT, DISTINCT, WHERE, IN, BETWEEN, LIKE) | ✅ Completed |
 | 3 | [LAB_ASSIGNMENT_03](Lab%20Manual/LAB_ASSIGNMENT_03.md) | Advanced Retrieval (ORDER BY, Pattern Matching, NULL Handling) | ✅ Completed |
 | 4 | [LAB_ASSIGNMENT_04](Lab%20Manual/LAB_ASSIGNMENT_04.md) | String Functions, Computed Columns, UPDATE & Date Filtering | ✅ Completed |
+| 5 | [LAB_ASSIGNMENT_05](Lab%20Manual/LAB_ASSIGNMENT_05.md) | Aggregate Functions (COUNT, SUM, MAX, MIN, AVG) & String Functions (UPPER, LOWER, LENGTH) | ✅ Completed |
 
 ---
 
@@ -121,7 +123,7 @@ SHOW TABLES;
 - [x] Lab Assignment 02 - Data Retrieval Queries
 - [x] Lab Assignment 03 - Advanced Retrieval & Sorting
 - [x] Lab Assignment 04 - String Functions, Computed Columns & DML
-- [ ] Lab Assignment 05 - *(Coming Soon)*
+- [x] Lab Assignment 05 - Aggregate Functions & String Functions
 
 ---
 
