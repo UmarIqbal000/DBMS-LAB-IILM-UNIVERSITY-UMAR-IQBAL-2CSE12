@@ -17,7 +17,14 @@ DBMS LAB/
 │   ├── LAB_ASSIGNMENT_02.md    ✅ Data Retrieval Queries
 │   ├── LAB_ASSIGNMENT_03.md    ✅ Advanced Retrieval & Sorting
 │   ├── LAB_ASSIGNMENT_04.md    ✅ String Functions, Computed Columns & DML
-│   └── LAB_ASSIGNMENT_05.md    ✅ Aggregate Functions & String Functions
+│   ├── LAB_ASSIGNMENT_05.md    ✅ Aggregate Functions & String Functions
+│   ├── LAB_ASSIGNMENT_06.md    ✅ Date Functions, CASE/DECODE & String Operations
+│   ├── LAB_ASSIGNMENT_07.md    ✅ Aggregate Functions, GROUP BY & Matrix Queries
+│   ├── LAB_ASSIGNMENT_08.md    ✅ JOINs, Self-Joins & Multi-Table Queries
+│   ├── LAB_ASSIGNMENT_09.md    ✅ Subqueries, Correlated Subqueries & Advanced Queries
+│   ├── LAB_ASSIGNMENT_10.md    ✅ ALL/ANY Operators, Self-Joins & Multi-Table Filters
+│   ├── LAB_ASSIGNMENT_11.md    ✅ DELETE with JOIN, LIMIT, Complex Aggregates
+│   └── LAB_ASSIGNMENT_12.md    ✅ NOT EXISTS, String Functions & Complex Comparisons
 │
 ├── 📂 Practice Set/
 │   ├── Practice_Set_01.md      ✅ Database & Table Creation
@@ -38,6 +45,13 @@ DBMS LAB/
 | 3 | [LAB_ASSIGNMENT_03](Lab%20Manual/LAB_ASSIGNMENT_03.md) | Advanced Retrieval (ORDER BY, Pattern Matching, NULL Handling) | ✅ Completed |
 | 4 | [LAB_ASSIGNMENT_04](Lab%20Manual/LAB_ASSIGNMENT_04.md) | String Functions, Computed Columns, UPDATE & Date Filtering | ✅ Completed |
 | 5 | [LAB_ASSIGNMENT_05](Lab%20Manual/LAB_ASSIGNMENT_05.md) | Aggregate Functions (COUNT, SUM, MAX, MIN, AVG) & String Functions (UPPER, LOWER, LENGTH) | ✅ Completed |
+| 6 | [LAB_ASSIGNMENT_06](Lab%20Manual/LAB_ASSIGNMENT_06.md) | Date Functions (DATEDIFF, DATE_FORMAT, DAYNAME), CASE/DECODE & Subqueries | ✅ Completed |
+| 7 | [LAB_ASSIGNMENT_07](Lab%20Manual/LAB_ASSIGNMENT_07.md) | Aggregate Functions, GROUP BY, Matrix Queries & Dollar Formatting | ✅ Completed |
+| 8 | [LAB_ASSIGNMENT_08](Lab%20Manual/LAB_ASSIGNMENT_08.md) | JOINs (INNER, LEFT, Self-Join), SALGRADE, IFNULL & Multi-Table Queries | ✅ Completed |
+| 9 | [LAB_ASSIGNMENT_09](Lab%20Manual/LAB_ASSIGNMENT_09.md) | Subqueries, Correlated Subqueries & GROUP BY with HAVING | ✅ Completed |
+| 10 | [LAB_ASSIGNMENT_10](Lab%20Manual/LAB_ASSIGNMENT_10.md) | ALL/ANY Operators, Self-Joins & Complex Multi-Table Filters | ✅ Completed |
+| 11 | [LAB_ASSIGNMENT_11](Lab%20Manual/LAB_ASSIGNMENT_11.md) | DELETE with JOIN, LIMIT, Manager-Employee Comparisons | ✅ Completed |
+| 12 | [LAB_ASSIGNMENT_12](Lab%20Manual/LAB_ASSIGNMENT_12.md) | NOT EXISTS, String Functions & Complex Comparisons | ✅ Completed |
 
 ---
 
@@ -124,6 +138,13 @@ SHOW TABLES;
 - [x] Lab Assignment 03 - Advanced Retrieval & Sorting
 - [x] Lab Assignment 04 - String Functions, Computed Columns & DML
 - [x] Lab Assignment 05 - Aggregate Functions & String Functions
+- [x] Lab Assignment 06 - Date Functions, CASE/DECODE & String Operations
+- [x] Lab Assignment 07 - Aggregate Functions, GROUP BY & Matrix Queries
+- [x] Lab Assignment 08 - JOINs, Self-Joins & Multi-Table Queries
+- [x] Lab Assignment 09 - Subqueries, Correlated Subqueries & Advanced Queries
+- [x] Lab Assignment 10 - ALL/ANY Operators, Self-Joins & Complex Multi-Table Filters
+- [x] Lab Assignment 11 - DELETE with JOIN, LIMIT, Manager-Employee Comparisons
+- [x] Lab Assignment 12 - NOT EXISTS, String Functions & Complex Comparisons
 
 ---
 
