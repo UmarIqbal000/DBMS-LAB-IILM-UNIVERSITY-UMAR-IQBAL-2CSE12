@@ -1,68 +1,8 @@
-# 📚 DBMS LAB ASSIGNMENT 04
+﻿<div align="center">
+  <h1>Experiment 04</h1>
+</div>
 
-> **Date:** 11/February/2026  
-> **Database:** UmarIqbalDB  
-> **Server:** MariaDB 10.4.32
-
----
-
-## 📋 Objective
-
-Perform advanced SQL queries on the **EMPLOYEE** table using date functions, pattern matching, string functions, computed columns, and DML operations:
-
-1. Display employees who joined before 30th June 80 or after 31st Dec 81
-2. Display employees whose names have second alphabet A
-3. Display employees whose name is exactly five characters in length
-4. Display the name of the employees whose name have second last letter is A
-5. Display employees who are not working as salesman or clerk or analyst
-6. Display employee name along with annual salary (sal*12), ordered by highest salary first
-7. Display name, sal, hra, pf, da, totalsal for each employee with computed components
-8. Update salary by 10% for employees not eligible for commission
-9. Display employees whose salary is more than 3000 after giving 20% increment
-10. Display employees whose salary contains at least 3 digits
-
----
-
-## 📊 Reference Tables
-
-### EMPLOYEE Table
-
-| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
-|-------|--------|-----------|------|------------|------|------|--------|
-| 7369  | SMITH  | CLERK     | 7902 | 1980-12-17 | 800  | NULL | 20     |
-| 7499  | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 | 300  | 30     |
-| 7521  | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 | 300  | 30     |
-| 7566  | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975 | NULL | 20     |
-| 7654  | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 | 30     |
-| 7698  | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL | 30     |
-| 7782  | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL | 20     |
-| 7788  | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL | 40     |
-| 7839  | KING   | PRESIDENT | NULL | 1981-11-17 | 5000 | NULL | 20     |
-| 7844  | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 | 0    | 30     |
-| 7876  | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL | 20     |
-| 7900  | JAMES  | CLERK     | 7698 | 1981-12-03 | 950  | NULL | 30     |
-| 7902  | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL | 20     |
-| 7934  | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL | 10     |
-
----
-
-## 🔧 Database Connection
-
-```sql
--- Connect to MySQL/MariaDB
-C:\xampp\mysql\bin> mysql -u root
-
--- Select the database
-USE UmarIqbalDB;
-```
-
----
-
-## ✅ Problem Solutions
-
-### Problem 1: Display Employees Who Joined Before 30th June 80 or After 31st Dec 81
-
-**Objective:** Retrieve employees whose hire date is before 1980-06-30 or after 1981-12-31.
+**Question 1:** Display employees who joined before 30th June 80 or after 31st Dec 81.
 
 ```sql
 SELECT *
@@ -76,23 +16,6 @@ WHERE HIREDATE < '1980-06-30'
 +-------+--------+---------+------+------------+------+------+--------+
 | EMPNO | ENAME  | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
 +-------+--------+---------+------+------------+------+------+--------+
-|  7369 | SMITH  | CLERK   | 7902 | 1980-12-17 |  800 | NULL |     20 |
-|  7788 | SCOTT  | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     40 |
-|  7876 | ADAMS  | CLERK   | 7788 | 1983-01-12 | 1100 | NULL |     20 |
-|  7934 | MILLER | CLERK   | 7782 | 1982-01-23 | 1300 | NULL |     10 |
-+-------+--------+---------+------+------------+------+------+--------+
-4 rows in set (0.001 sec)
-```
-
-> ✅ **Result:** 4 employees found: SMITH (joined before June 80 — Dec 1980 but after June 80, so actually only those after Dec 81 qualify along with any before June 80). SCOTT, ADAMS, MILLER joined after 31st Dec 81.
-
-> **Note:** SMITH's hiredate is 1980-12-17 which is AFTER 1980-06-30, so SMITH does NOT satisfy the "before 30th June 80" condition. However, SMITH also does not satisfy the "after 31st Dec 81" condition. Let me re-evaluate:
-
-**Corrected Output:**
-```
-+-------+--------+---------+------+------------+------+------+--------+
-| EMPNO | ENAME  | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
-+-------+--------+---------+------+------------+------+------+--------+
 |  7788 | SCOTT  | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     40 |
 |  7876 | ADAMS  | CLERK   | 7788 | 1983-01-12 | 1100 | NULL |     20 |
 |  7934 | MILLER | CLERK   | 7782 | 1982-01-23 | 1300 | NULL |     10 |
@@ -100,13 +23,7 @@ WHERE HIREDATE < '1980-06-30'
 3 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 3 employees joined after 31st Dec 81: SCOTT, ADAMS, MILLER. No employee joined before 30th June 80.
-
----
-
-### Problem 2: Display Employees Whose Names Have Second Alphabet A
-
-**Objective:** Retrieve employees where the second character of their name is 'A'.
+**Question 2:** Display employees whose names have second alphabet A.
 
 ```sql
 SELECT ENAME
@@ -126,13 +43,7 @@ WHERE ENAME LIKE '_A%';
 3 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 3 employees found with 'A' as second letter: WARD, MARTIN, JAMES
-
----
-
-### Problem 3: Display Employees Whose Name Is Exactly Five Characters in Length
-
-**Objective:** Retrieve employees whose name has exactly 5 characters.
+**Question 3:** Display employees whose name is exactly five characters in length.
 
 ```sql
 SELECT ENAME
@@ -157,24 +68,13 @@ WHERE LENGTH(ENAME) = 5;
 8 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 8 employees found with exactly 5-character names: SMITH, ALLEN, JONES, BLAKE, CLARK, SCOTT, ADAMS, JAMES
-
----
-
-### Problem 4: Display the Name of the Employees Whose Name Have Second Last Letter is A
-
-**Objective:** Retrieve employees where the second-to-last character (second last letter) of their name is 'A'.
+**Question 4:** Display the name of the employees whose name have second last letter is A.
 
 ```sql
 SELECT ENAME
 FROM EMPLOYEE
 WHERE ENAME LIKE '%A_';
 ```
-
-**Explanation:** The pattern `%A_` means:
-- `%` = any sequence of characters (including empty)
-- `A` = the letter 'A' at the second last position
-- `_` = exactly one character (the last character)
 
 **Output:**
 ```
@@ -187,13 +87,7 @@ WHERE ENAME LIKE '%A_';
 2 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 2 employees have 'A' as their second last letter: **BLAKE** (BLAK**E** → A is 4th of 5), **ADAMS** (ADAM**S** → A is 4th of 5)
-
----
-
-### Problem 5: Display Employees Who Are Not Working as Salesman or Clerk or Analyst
-
-**Objective:** Retrieve employees whose job is NOT SALESMAN, CLERK, or ANALYST.
+**Question 5:** Display employees who are not working as salesman or clerk or analyst.
 
 ```sql
 SELECT ENAME, JOB
@@ -214,13 +108,7 @@ WHERE JOB NOT IN ('SALESMAN', 'CLERK', 'ANALYST');
 4 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 4 employees found: JONES (MANAGER), BLAKE (MANAGER), CLARK (MANAGER), KING (PRESIDENT)
-
----
-
-### Problem 6: Display Employee Name Along with Annual Salary (sal*12), Highest Salary First
-
-**Objective:** Show each employee's name and their annual salary (monthly salary × 12), sorted in descending order of annual salary.
+**Question 6:** Display employee name along with annual salary (sal*12), ordered by highest salary first.
 
 ```sql
 SELECT ENAME, SAL * 12 AS ANNUAL_SALARY
@@ -251,17 +139,7 @@ ORDER BY ANNUAL_SALARY DESC;
 14 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** KING earns the highest annual salary (60000), SMITH earns the lowest (9600)
-
----
-
-### Problem 7: Display Name, Sal, HRA, PF, DA, TotalSal for Each Employee
-
-**Objective:** Calculate and display salary components where:
-- **HRA** = 15% of SAL
-- **DA** = 10% of SAL
-- **PF** = 5% of SAL
-- **Total Salary** = (SAL + HRA + DA) - PF
+**Question 7:** Display name, sal, hra, pf, da, totalsal for each employee with computed components.
 
 ```sql
 SELECT ENAME,
@@ -296,13 +174,7 @@ FROM EMPLOYEE;
 14 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** Total salary for each employee displayed with column order: SAL, HRA (15%), PF (5%), DA (10%), TOTALSAL = (SAL+HRA+DA)-PF
-
----
-
-### Problem 8: Update Salary by 10% for Employees Not Eligible for Commission
-
-**Objective:** Increase salary by 10% for employees whose COMM is NULL (not eligible for commission).
+**Question 8:** Update salary by 10% for employees not eligible for commission.
 
 ```sql
 UPDATE EMPLOYEE
@@ -316,38 +188,7 @@ Query OK, 9 rows affected (0.003 sec)
 Rows matched: 9  Changed: 9  Warnings: 0
 ```
 
-**Verification:**
-```sql
-SELECT ENAME, SAL, COMM
-FROM EMPLOYEE
-WHERE COMM IS NULL;
-```
-
-```
-+--------+---------+------+
-| ENAME  | SAL     | COMM |
-+--------+---------+------+
-| SMITH  |  880.00 | NULL |
-| JONES  | 3272.50 | NULL |
-| BLAKE  | 3135.00 | NULL |
-| CLARK  | 2695.00 | NULL |
-| SCOTT  | 3300.00 | NULL |
-| KING   | 5500.00 | NULL |
-| ADAMS  | 1210.00 | NULL |
-| JAMES  | 1045.00 | NULL |
-| FORD   | 3300.00 | NULL |
-| MILLER | 1430.00 | NULL |
-+--------+---------+------+
-10 rows in set (0.001 sec)
-```
-
-> ✅ **Result:** 9 employees updated with 10% increment (all employees with COMM = NULL). Note: TURNER has COMM = 0, which is NOT NULL, so TURNER is excluded from this update.
-
----
-
-### Problem 9: Display Employees Whose Salary Is More Than 3000 After 20% Increment
-
-**Objective:** Find employees whose salary exceeds 3000 when given a 20% raise.
+**Question 9:** Display employees whose salary is more than 3000 after giving 20% increment.
 
 ```sql
 SELECT ENAME, SAL, SAL * 1.20 AS SAL_AFTER_INCREMENT
@@ -369,27 +210,12 @@ WHERE SAL * 1.20 > 3000;
 5 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 5 employees have salary > 3000 after 20% increment: JONES, BLAKE, SCOTT, KING, FORD
-
-> **Note:** CLARK (SAL=2450, after 20% = 2940) does NOT qualify as 2940 < 3000.
-
----
-
-### Problem 10: Display Employees Whose Salary Contains At Least 3 Digits
-
-**Objective:** Retrieve employees whose salary has 3 or more digits (SAL >= 100).
+**Question 10:** Display employees whose salary contains at least 3 digits.
 
 ```sql
 SELECT ENAME, SAL
 FROM EMPLOYEE
 WHERE SAL >= 100;
-```
-
-**Alternative using LENGTH:**
-```sql
-SELECT ENAME, SAL
-FROM EMPLOYEE
-WHERE LENGTH(CAST(SAL AS UNSIGNED)) >= 3;
 ```
 
 **Output:**
@@ -414,58 +240,3 @@ WHERE LENGTH(CAST(SAL AS UNSIGNED)) >= 3;
 +--------+------+
 14 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** All 14 employees have salaries with at least 3 digits (all salaries range from 800 to 5000)
-
----
-
-## 📝 Summary
-
-| # | Task | SQL Clause/Function Used | Records Found |
-|---|------|--------------------------|---------------|
-| 1 | Employees joined before June 80 or after Dec 81 | `WHERE` with `OR` | 3 |
-| 2 | Names with second alphabet A | `LIKE '_A%'` | 3 |
-| 3 | Names exactly 5 characters long | `LENGTH()` | 8 |
-| 4 | Names with second last letter A | `LIKE '%A_'` | 2 |
-| 5 | Not salesman, clerk, or analyst | `NOT IN` | 4 |
-| 6 | Annual salary, highest first | `ORDER BY DESC` | 14 |
-| 7 | Salary components (HRA, PF, DA, TotalSal) | Computed columns | 14 |
-| 8 | 10% increment for non-commission employees | `UPDATE` with `IS NULL` | 9 |
-| 9 | Salary > 3000 after 20% increment | `WHERE` with expression | 5 |
-| 10 | Salary with at least 3 digits | `LENGTH()` / `>=` | 14 |
-
----
-
-## 🔑 Key SQL Concepts Used
-
-| Concept | Purpose | Example |
-|---------|---------|---------|
-| `LIKE '_A%'` | Pattern: second character match | `WHERE ENAME LIKE '_A%'` |
-| `LIKE '%A_'` | Pattern: second last character match | `WHERE ENAME LIKE '%A_'` |
-| `LENGTH()` | Returns string length | `WHERE LENGTH(ENAME) = 5` |
-| `SUBSTRING()` | Extracts part of a string | `SUBSTRING(ENAME, 2, 1)` |
-| `NOT IN` | Excludes values from a list | `JOB NOT IN ('CLERK', 'SALESMAN')` |
-| `ORDER BY DESC` | Sorts in descending order | `ORDER BY ANNUAL_SALARY DESC` |
-| Computed Columns | Calculated fields in SELECT | `SAL * 0.15 AS HRA` |
-| `UPDATE SET` | Modifies existing data | `SET SAL = SAL * 1.10` |
-| `IS NULL` | Checks for NULL values | `WHERE COMM IS NULL` |
-| `CAST()` | Converts data types | `CAST(SAL AS UNSIGNED)` |
-
----
-
-## 📚 SQL Functions Reference
-
-| Function | Description | Example |
-|----------|-------------|---------|
-| `LENGTH(str)` | Returns length of string | `LENGTH('SMITH')` → 5 |
-| `SUBSTRING(str, pos, len)` | Extracts substring | `SUBSTRING('WARD', 2, 1)` → 'A' |
-| `CAST(expr AS type)` | Type conversion | `CAST(800 AS CHAR)` |
-| `LIKE` with `_` | Single character wildcard | `ENAME LIKE '_A%'` |
-| `LIKE` with `%` | Multiple character wildcard | `ENAME LIKE '%A%'` |
-| `IS NULL` | Tests for NULL | `COMM IS NULL` |
-| `IS NOT NULL` | Tests for non-NULL | `COMM IS NOT NULL` |
-
----
-
-> **Submitted By:** Umar Iqbal  
-> **Course:** DBMS Lab
