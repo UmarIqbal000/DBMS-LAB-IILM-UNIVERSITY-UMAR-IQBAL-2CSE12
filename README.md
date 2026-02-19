@@ -79,19 +79,3 @@ USE UmarIqbalDB;
 -- Show all tables
 SHOW TABLES;
 ```
-
-## SQL Topics Covered
-
-**Data Definition Language (DDL):** CREATE, ALTER, DROP, TRUNCATE
-
-**Data Manipulation Language (DML):** INSERT, UPDATE, DELETE
-
-**Data Query Language (DQL):** SELECT, DISTINCT, WHERE, IN, NOT IN, BETWEEN, LIKE, ORDER BY, GROUP BY, HAVING
-
-**Joins:** INNER JOIN, LEFT JOIN, RIGHT JOIN, CROSS JOIN, Self-Join
-
-**Subqueries:** Scalar, Correlated, ANY/ALL/SOME, EXISTS/NOT EXISTS
-
-**Aggregate Functions:** COUNT, SUM, MAX, MIN, AVG
-
-**Constraints:** PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE, CHECK, DEFAULT
