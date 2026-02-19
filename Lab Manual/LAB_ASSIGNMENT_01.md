@@ -1,33 +1,17 @@
-# 📚 DBMS LAB ASSIGNMENT 01
+<div align="center">
+  <h1>Experiment 01</h1>
+</div>
 
-> **Date:** 28/January/2026  
-> **Database:** UmarIqbalDB  
-> **Server:** MariaDB 10.4.32
+## Table Structures
 
----
-
-## 📋 Objective
-
-Create two tables (`DEPARTMENT` and `EMPLOYEE`) and perform the following operations:
-
-1. Create `EMPLOYEE_MASTER` table with data from `EMPLOYEE` table
-2. Delete all records from `EMPLOYEE_MASTER` where `DEPTNO = 10`
-3. Update salary by 10% increase for `DEPTNO = 20` in `EMPLOYEE_MASTER`
-4. Alter `SAL` column to `DECIMAL(10,2)` in `EMPLOYEE_MASTER`
-5. Drop `EMPLOYEE_MASTER` table
-
----
-
-## 📊 Table Structures
-
-### Table 1: DEPARTMENT
+### DEPARTMENT Table
 
 | Field  | Type        | Null | Key | Default | Extra |
 |--------|-------------|------|-----|---------|-------|
 | DEPTNO | INT(2)      | NO   | PRI | NULL    |       |
 | DNAME  | VARCHAR(15) | NO   |     | NULL    |       |
 
-### Table 2: EMPLOYEE
+### EMPLOYEE Table
 
 | Field    | Type        | Null | Key | Default | Extra       |
 |----------|-------------|------|-----|---------|-------------|
@@ -40,9 +24,7 @@ Create two tables (`DEPARTMENT` and `EMPLOYEE`) and perform the following operat
 | COMM     | INT(7)      | YES  |     | NULL    |             |
 | DEPTNO   | INT(2)      | YES  | MUL | NULL    | Foreign Key |
 
----
-
-## 📁 Sample Data
+## Sample Data
 
 ### DEPARTMENT Table
 
@@ -72,28 +54,9 @@ Create two tables (`DEPARTMENT` and `EMPLOYEE`) and perform the following operat
 | 7902  | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL | 20     |
 | 7934  | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL | 10     |
 
----
+## Step 1: Create Tables
 
-## 🔧 SQL Queries & Solutions
-
-### Step 0: Database Connection & Setup
-
-```sql
--- Connect to MySQL/MariaDB
-C:\xampp\mysql\bin> mysql -u root
-
--- Show available databases
-SHOW DATABASES;
-
--- Select the database
-USE UmarIqbalDB;
-```
-
----
-
-### Step 1: Create Tables
-
-#### Create DEPARTMENT Table
+**Create DEPARTMENT Table:**
 
 ```sql
 CREATE TABLE DEPARTMENT (
@@ -107,7 +70,7 @@ CREATE TABLE DEPARTMENT (
 Query OK, 0 rows affected (0.017 sec)
 ```
 
-#### Create EMPLOYEE Table
+**Create EMPLOYEE Table:**
 
 ```sql
 CREATE TABLE EMPLOYEE (
@@ -128,7 +91,7 @@ CREATE TABLE EMPLOYEE (
 Query OK, 0 rows affected (0.040 sec)
 ```
 
-#### Verify Tables Created
+**Verify Tables Created:**
 
 ```sql
 SHOW TABLES;
@@ -145,11 +108,9 @@ SHOW TABLES;
 2 rows in set (0.001 sec)
 ```
 
----
+## Step 2: Insert Data
 
-### Step 2: Insert Data
-
-#### Insert into DEPARTMENT
+**Insert into DEPARTMENT:**
 
 ```sql
 INSERT INTO DEPARTMENT (DEPTNO, DNAME) VALUES
@@ -165,7 +126,7 @@ Query OK, 4 rows affected (0.088 sec)
 Records: 4  Duplicates: 0  Warnings: 0
 ```
 
-#### Insert into EMPLOYEE
+**Insert into EMPLOYEE:**
 
 ```sql
 INSERT INTO EMPLOYEE (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO)
@@ -192,13 +153,9 @@ Query OK, 14 rows affected (0.013 sec)
 Records: 14  Duplicates: 0  Warnings: 0
 ```
 
----
+## Step 3: Problem Solutions
 
-## ✅ Problem Solutions
-
-### Problem 1: Create EMPLOYEE_MASTER Table
-
-**Objective:** Create `EMPLOYEE_MASTER` table with data from `EMPLOYEE` table.
+**Question 1:** Create EMPLOYEE_MASTER table with data from EMPLOYEE table.
 
 ```sql
 CREATE TABLE EMPLOYEE_MASTER AS
@@ -240,11 +197,7 @@ SELECT * FROM EMPLOYEE_MASTER;
 14 rows in set (0.001 sec)
 ```
 
----
-
-### Problem 2: Delete Records Where DEPTNO = 10
-
-**Objective:** Delete all records from `EMPLOYEE_MASTER` where `DEPTNO = 10`.
+**Question 2:** Delete all records from EMPLOYEE_MASTER where DEPTNO = 10.
 
 ```sql
 DELETE FROM EMPLOYEE_MASTER
@@ -267,13 +220,7 @@ SELECT * FROM EMPLOYEE_MASTER WHERE DEPTNO = 10;
 Empty set (0.001 sec)
 ```
 
-> ✅ **Result:** 1 record (MILLER) was deleted successfully.
-
----
-
-### Problem 3: Update Salary by 10% for DEPTNO = 20
-
-**Objective:** Increase salary by 10% for all employees in `DEPTNO = 20`.
+**Question 3:** Update salary by 10% increase for DEPTNO = 20 in EMPLOYEE_MASTER.
 
 ```sql
 UPDATE EMPLOYEE_MASTER
@@ -308,13 +255,7 @@ SELECT EMPNO, ENAME, SAL FROM EMPLOYEE_MASTER WHERE DEPTNO = 20;
 6 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** Salary increased by 10% for 6 employees in DEPTNO 20.
-
----
-
-### Problem 4: Alter SAL Column to DECIMAL(10,2)
-
-**Objective:** Modify the `SAL` column to store decimal values with 2 decimal places.
+**Question 4:** Alter SAL column to DECIMAL(10,2) in EMPLOYEE_MASTER.
 
 ```sql
 ALTER TABLE EMPLOYEE_MASTER
@@ -350,13 +291,7 @@ DESCRIBE EMPLOYEE_MASTER;
 8 rows in set (0.043 sec)
 ```
 
-> ✅ **Result:** SAL column type changed from `INT(10)` to `DECIMAL(10,2)`.
-
----
-
-### Problem 5: Drop EMPLOYEE_MASTER Table
-
-**Objective:** Remove the `EMPLOYEE_MASTER` table from the database.
+**Question 5:** Drop EMPLOYEE_MASTER table.
 
 ```sql
 DROP TABLE EMPLOYEE_MASTER;
@@ -366,33 +301,3 @@ DROP TABLE EMPLOYEE_MASTER;
 ```
 Query OK, 0 rows affected (0.013 sec)
 ```
-
-> ✅ **Result:** `EMPLOYEE_MASTER` table dropped successfully.
-
----
-
-## 📝 Summary
-
-| # | Task | Query Type | Status |
-|---|------|------------|--------|
-| 1 | Create EMPLOYEE_MASTER from EMPLOYEE | CREATE TABLE AS SELECT | ✅ Done |
-| 2 | Delete records where DEPTNO = 10 | DELETE | ✅ Done |
-| 3 | Update salary (+10%) for DEPTNO = 20 | UPDATE | ✅ Done |
-| 4 | Alter SAL to DECIMAL(10,2) | ALTER TABLE | ✅ Done |
-| 5 | Drop EMPLOYEE_MASTER table | DROP TABLE | ✅ Done |
-
----
-
-## 🔑 Key SQL Concepts Used
-
-| Concept | Command | Description |
-|---------|---------|-------------|
-| **DDL** | CREATE, ALTER, DROP | Data Definition Language - defines structure |
-| **DML** | INSERT, UPDATE, DELETE | Data Manipulation Language - modifies data |
-| **DQL** | SELECT | Data Query Language - retrieves data |
-| **Constraints** | PRIMARY KEY, FOREIGN KEY, NOT NULL | Ensures data integrity |
-
----
-
-> **Submitted By:** Umar Iqbal  
-> **Course:** DBMS Lab
