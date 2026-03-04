@@ -177,7 +177,7 @@ SELECT DATE_ADD(
 **Question 8:** Display current time.
 
 ```sql
-SELECT CURTIME() AS CURRENT_TIME;
+SELECT CURTIME() AS `CURRENT_TIME`;
 ```
 
 **Output:**
@@ -332,20 +332,4 @@ AND DEPTNO IS NOT NULL;
 | MILLER | 1982-01-23 |     10 |
 +--------+------------+--------+
 14 rows in set (0.001 sec)
-```
-
----
-
-### Quick Reference: DATE_ADD & DATE_SUB
-
-**Example (Add 7 days):**
-```sql
--- Syntax: DATE_ADD(date, INTERVAL value interval_type)
-SELECT DATE_ADD('2025-01-01', INTERVAL 7 DAY);
-```
-
-**Example (Subtract 3 hours):**
-```sql
--- Syntax: DATE_SUB(date, INTERVAL value interval_type)
-SELECT DATE_SUB('2025-01-01 12:00:00', INTERVAL 3 HOUR);
 ```
