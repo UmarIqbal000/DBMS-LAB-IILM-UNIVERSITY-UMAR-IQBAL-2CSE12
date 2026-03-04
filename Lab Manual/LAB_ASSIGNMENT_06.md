@@ -116,7 +116,7 @@ WHERE ENAME = 'SCOTT';
 1 row in set (0.001 sec)
 ```
 
-**Question 7:** Find the date for nearest Saturday after current date.
+**Question 6:** Find the date for nearest Saturday after current date.
 
 **Approach 1:** Using `WEEKDAY()`
 ```sql
@@ -174,7 +174,7 @@ SELECT DATE_ADD(
 
 > **Note:** The above code (Approach 3) is correct for days less than Saturday, but when the value becomes negative, it doesn't work.
 
-**Question 8:** Display current time.
+**Question 7:** Display current time.
 
 ```sql
 SELECT CURTIME() AS `CURRENT_TIME`;
@@ -190,7 +190,7 @@ SELECT CURTIME() AS `CURRENT_TIME`;
 1 row in set (0.001 sec)
 ```
 
-**Question 9:** Display the date three months before the current date.
+**Question 8:** Display the date three months before the current date.
 
 ```sql
 SELECT DATE_SUB(CURDATE(), INTERVAL 3 MONTH) 
@@ -207,7 +207,7 @@ AS DATE_BEFORE_3_MONTHS;
 1 row in set (0.001 sec)
 ```
 
-**Question 10:** Display those employees who joined in the company in the month of Dec.
+**Question 9:** Display those employees who joined in the company in the month of Dec.
 
 ```sql
 SELECT ENAME, HIREDATE
@@ -228,7 +228,7 @@ WHERE MONTH(HIREDATE) = 12;
 4 rows in set (0.001 sec)
 ```
 
-**Question 11:** Display those employees whose first 2 characters from hire date - last 2 characters of salary.
+**Question 10:** Display those employees whose first 2 characters from hire date - last 2 characters of salary.
 
 ```sql
 SELECT ENAME, HIREDATE, SAL
@@ -241,7 +241,7 @@ WHERE LEFT(DATE_FORMAT(HIREDATE, '%y'), 2) = RIGHT(SAL, 2);
 Empty set (0.001 sec)
 ```
 
-**Question 12:** Display those employees whose 10% of salary is equal to the year of joining.
+**Question 11:** Display those employees whose 10% of salary is equal to the year of joining.
 
 ```sql
 SELECT ENAME, SAL, HIREDATE
@@ -254,7 +254,7 @@ WHERE (SAL * 0.10) = YEAR(HIREDATE);
 Empty set (0.001 sec)
 ```
 
-**Question 13:** Display those employees who joined the company before 15 of the months.
+**Question 12:** Display those employees who joined the company before 15 of the months.
 
 ```sql
 SELECT ENAME, HIREDATE
@@ -279,7 +279,7 @@ WHERE DAY(HIREDATE) < 15;
 8 rows in set (0.001 sec)
 ```
 
-**Question 14:** Display those employees who has joined AFTER 15th of the month.
+**Question 13:** Display those employees who has joined AFTER 15th of the month.
 
 ```sql
 SELECT ENAME, HIREDATE
@@ -302,7 +302,7 @@ WHERE DAY(HIREDATE) > 15;
 6 rows in set (0.001 sec)
 ```
 
-**Question 15:** Display those employees whose joining DATE is available in deptno.
+**Question 14:** Display those employees whose joining DATE is available in deptno.
 
 ```sql
 SELECT ENAME, HIREDATE, DEPTNO
