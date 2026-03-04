@@ -78,7 +78,7 @@ AS AGE_IN_MONTHS;
 
 ```sql
 SELECT DATE_FORMAT(CURDATE(), '%D %M %W %Y') 
-AS CURRENT_DATE;
+AS `CURRENT_DATE`;
 ```
 
 **Output:**
