@@ -2,6 +2,36 @@
   <h1>Experiment 08</h1>
 </div>
 
+**Table Structure for This Experiment:**
+```sql
+CREATE TABLE salgrade (
+    grade CHAR(1),
+    losal INT,
+    hisal INT
+);
+
+INSERT INTO salgrade VALUES ('A', 700, 1200);
+INSERT INTO salgrade VALUES ('B', 1201, 1400);
+INSERT INTO salgrade VALUES ('C', 1401, 2000);
+INSERT INTO salgrade VALUES ('D', 2001, 3000);
+INSERT INTO salgrade VALUES ('E', 3001, 9999);
+
+SELECT * FROM salgrade;
+```
+
+**Output:**
+```
++-------+-------+-------+
+| grade | losal | hisal |
++-------+-------+-------+
+| A     |   700 |  1200 |
+| B     |  1201 |  1400 |
+| C     |  1401 |  2000 |
+| D     |  2001 |  3000 |
+| E     |  3001 |  9999 |
++-------+-------+-------+
+```
+
 **Question 1:** Display all employees with their dept name.
 
 ```sql
@@ -213,6 +243,31 @@ WHERE E.SAL * 12 >= 30000
 5 rows in set (0.001 sec)
 ```
 
+**Table Modification for Question 8 onwards:**
+```sql
+ALTER TABLE department
+ADD location VARCHAR(20);
+
+UPDATE department SET location = 'MUMBAI'  WHERE deptno = 10;
+UPDATE department SET location = 'CHENNAI' WHERE deptno = 20;
+UPDATE department SET location = 'HYDERABAD' WHERE deptno = 30;
+UPDATE department SET location = 'DELHI'   WHERE deptno = 40;
+
+SELECT * FROM department;
+```
+
+**Output:**
+```
++--------+------------+-----------+
+| DEPTNO | DNAME      | location  |
++--------+------------+-----------+
+|     10 | SALES      | MUMBAI    |
+|     20 | RESEARCH   | CHENNAI   |
+|     30 | SALES      | HYDERABAD |
+|     40 | OPERATIONS | DELHI     |
++--------+------------+-----------+
+```
+
 **Question 8:** List out all employees by name and number along with their manager's name and number also display 'no manager' who has no manager.
 
 ```sql
@@ -274,7 +329,7 @@ ORDER BY D.DEPTNO;
 **Question 10:** Display employee number, name and location of the department in which he is working.
 
 ```sql
-SELECT E.EMPNO, E.ENAME, D.LOC
+SELECT E.EMPNO, E.ENAME, D.LOCATION
 FROM EMPLOYEE E
 JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO;
 ```
@@ -282,7 +337,7 @@ JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO;
 **Output:**
 ```
 +-------+--------+----------+
-| EMPNO | ENAME  | LOC      |
+| EMPNO | ENAME  | LOCATION |
 +-------+--------+----------+
 |  7369 | SMITH  | DALLAS   |
 |  7499 | ALLEN  | CHICAGO  |
