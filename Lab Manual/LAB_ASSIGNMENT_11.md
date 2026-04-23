@@ -19,7 +19,7 @@ Query OK, 7 rows affected (0.005 sec)
 **Question 2:** Display employee name, job, deptname, location for all managers.
 
 ```sql
-SELECT E.ENAME, E.JOB, D.DNAME, D.LOC
+SELECT E.ENAME, E.JOB, D.DNAME, D.LOCATION
 FROM EMPLOYEE E
 JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO
 WHERE E.JOB = 'MANAGER';
@@ -28,7 +28,7 @@ WHERE E.JOB = 'MANAGER';
 **Output:**
 ```
 +-------+---------+------------+----------+
-| ENAME | JOB     | DNAME      | LOC      |
+| ENAME | JOB     | DNAME      | LOCATION |
 +-------+---------+------------+----------+
 | JONES | MANAGER | RESEARCH   | DALLAS   |
 | BLAKE | MANAGER | SALES      | CHICAGO  |
