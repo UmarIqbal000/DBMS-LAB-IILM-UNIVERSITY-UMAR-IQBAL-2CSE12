@@ -42,7 +42,7 @@ AND SAL > ALL (SELECT SAL FROM EMPLOYEE WHERE DEPTNO != 10);
 1 row in set (0.001 sec)
 ```
 
-**Question 3:** Display details of employees who are in sales dept and grade is 3.
+**Question 3:** Display details of employees who are in sales dept and grade is C.
 
 ```sql
 SELECT E.EMPNO, E.ENAME, E.JOB, E.SAL, S.GRADE, D.DNAME
@@ -50,7 +50,7 @@ FROM EMPLOYEE E
 JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO
 JOIN SALGRADE S ON E.SAL BETWEEN S.LOSAL AND S.HISAL
 WHERE D.DNAME = 'SALES'
-AND S.GRADE = 3;
+AND S.GRADE = 'C';
 ```
 
 **Output:**
@@ -58,45 +58,31 @@ AND S.GRADE = 3;
 +-------+--------+----------+------+-------+-------+
 | EMPNO | ENAME  | JOB      | SAL  | GRADE | DNAME |
 +-------+--------+----------+------+-------+-------+
-|  7499 | ALLEN  | SALESMAN | 1600 |     3 | SALES |
-|  7844 | TURNER | SALESMAN | 1500 |     3 | SALES |
+|  7499 | ALLEN  | SALESMAN | 1600 | C     | SALES |
+|  7844 | TURNER | SALESMAN | 1500 | C     | SALES |
 +-------+--------+----------+------+-------+-------+
 2 rows in set (0.001 sec)
 ```
 
-**Question 4:** Display those who are not managers and who are managers.
+**Question 4:** Display those who are not managers and who manages anyone.
 
 ```sql
-SELECT EMPNO, ENAME, JOB,
-    CASE
-        WHEN JOB = 'MANAGER' THEN 'YES'
-        ELSE 'NO'
-    END AS IS_MANAGER
+SELECT EMPNO, ENAME, JOB
 FROM EMPLOYEE
-ORDER BY IS_MANAGER DESC, ENAME;
+WHERE JOB != 'MANAGER'
+AND EMPNO IN (SELECT MGR FROM EMPLOYEE);
 ```
 
 **Output:**
 ```
-+-------+--------+-----------+------------+
-| EMPNO | ENAME  | JOB       | IS_MANAGER |
-+-------+--------+-----------+------------+
-|  7698 | BLAKE  | MANAGER   | YES        |
-|  7782 | CLARK  | MANAGER   | YES        |
-|  7566 | JONES  | MANAGER   | YES        |
-|  7876 | ADAMS  | CLERK     | NO         |
-|  7499 | ALLEN  | SALESMAN  | NO         |
-|  7900 | JAMES  | CLERK     | NO         |
-|  7839 | KING   | PRESIDENT | NO         |
-|  7654 | MARTIN | SALESMAN  | NO         |
-|  7934 | MILLER | CLERK     | NO         |
-|  7788 | SCOTT  | ANALYST   | NO         |
-|  7369 | SMITH  | CLERK     | NO         |
-|  7902 | FORD   | ANALYST   | NO         |
-|  7844 | TURNER | SALESMAN  | NO         |
-|  7521 | WARD   | SALESMAN  | NO         |
-+-------+--------+-----------+------------+
-14 rows in set (0.001 sec)
++-------+-------+-----------+
+| EMPNO | ENAME | JOB       |
++-------+-------+-----------+
+|  7839 | KING  | PRESIDENT |
+|  7788 | SCOTT | ANALYST   |
+|  7902 | FORD  | ANALYST   |
++-------+-------+-----------+
+3 rows in set (0.001 sec)
 ```
 
 **Question 5:** Display employees whose manager name is JONES.
@@ -143,24 +129,26 @@ WHERE D.DNAME = 'SALES';
 6 rows in set (0.001 sec)
 ```
 
-**Question 7:** Display employee name, deptname, salary and comm for those sal between 2000 to 5000 while location is chicago.
+**Question 7:** Display employee name, deptname, salary and comm for those sal between 2000 to 5000 while location is chennai.
 
 ```sql
 SELECT E.ENAME, D.DNAME, E.SAL, IFNULL(E.COMM, 0) AS COMM
 FROM EMPLOYEE E
 JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO
 WHERE E.SAL BETWEEN 2000 AND 5000
-AND D.LOC = 'CHICAGO';
+AND D.LOCATION = 'CHENNAI';
 ```
 
 **Output:**
 ```
-+-------+-------+------+------+
-| ENAME | DNAME | SAL  | COMM |
-+-------+-------+------+------+
-| BLAKE | SALES | 2850 |    0 |
-+-------+-------+------+------+
-1 row in set (0.001 sec)
++-------+----------+------+------+
+| ENAME | DNAME    | SAL  | COMM |
++-------+----------+------+------+
+| JONES | RESEARCH | 2975 |    0 |
+| SCOTT | RESEARCH | 3000 |    0 |
+| FORD  | RESEARCH | 3000 |    0 |
++-------+----------+------+------+
+3 rows in set (0.001 sec)
 ```
 
 **Question 8:** Display employees whose salary greater than his manager salary.
@@ -201,14 +189,14 @@ WHERE E.DEPTNO = M.DEPTNO;
 6 rows in set (0.001 sec)
 ```
 
-**Question 10:** Display grade and employees name for the dept no 10 or 30 but grade is not 4, while joined the company before 31-Dec-82.
+**Question 10:** Display grade and employees name for the dept no 10 or 30 but grade is not D, while joined the company before 31-Dec-82.
 
 ```sql
 SELECT S.GRADE, E.ENAME, E.HIREDATE, E.DEPTNO, E.SAL
 FROM EMPLOYEE E
 JOIN SALGRADE S ON E.SAL BETWEEN S.LOSAL AND S.HISAL
 WHERE E.DEPTNO IN (10, 30)
-AND S.GRADE != 4
+AND S.GRADE != 'D'
 AND E.HIREDATE < '1982-12-31'
 ORDER BY S.GRADE, E.ENAME;
 ```
@@ -218,13 +206,13 @@ ORDER BY S.GRADE, E.ENAME;
 +-------+--------+------------+--------+------+
 | GRADE | ENAME  | HIREDATE   | DEPTNO | SAL  |
 +-------+--------+------------+--------+------+
-|     1 | JAMES  | 1981-12-03 |     30 |  950 |
-|     3 | ALLEN  | 1981-02-20 |     30 | 1600 |
-|     3 | MARTIN | 1981-09-28 |     30 | 1250 |
-|     3 | TURNER | 1981-09-08 |     30 | 1500 |
-|     3 | WARD   | 1981-02-22 |     30 | 1250 |
-|     5 | BLAKE  | 1981-05-01 |     30 | 2850 |
-|     5 | KING   | 1981-11-17 |     10 | 5000 |
+| A     | JAMES  | 1981-12-03 |     30 |  950 |
+| B     | MILLER | 1982-01-23 |     10 | 1300 |
+| C     | ALLEN  | 1981-02-20 |     30 | 1600 |
+| C     | MARTIN | 1981-09-28 |     30 | 1250 |
+| C     | TURNER | 1981-09-08 |     30 | 1500 |
+| C     | WARD   | 1981-02-22 |     30 | 1250 |
+| E     | KING   | 1981-11-17 |     10 | 5000 |
 +-------+--------+------------+--------+------+
 7 rows in set (0.001 sec)
 ```
