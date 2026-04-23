@@ -16,7 +16,7 @@ DBMS LAB/
 │   ├── LAB_ASSIGNMENT_06.md    Done
 │   ├── LAB_ASSIGNMENT_07.md    Done
 │   ├── LAB_ASSIGNMENT_08.md    Done
-│   ├── LAB_ASSIGNMENT_09.md    Not Done
+│   ├── LAB_ASSIGNMENT_09.md    Done
 │   ├── LAB_ASSIGNMENT_10.md    Not Done
 │   ├── LAB_ASSIGNMENT_11.md    Not Done
 │   └── LAB_ASSIGNMENT_12.md    Not Done

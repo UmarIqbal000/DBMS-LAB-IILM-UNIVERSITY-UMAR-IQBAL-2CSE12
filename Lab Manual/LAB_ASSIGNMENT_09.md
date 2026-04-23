@@ -175,28 +175,28 @@ WHERE D.DNAME = 'ACCOUNTING';
 3 rows in set (0.001 sec)
 ```
 
-**Question 9:** Display the employee names who are working in Chicago.
+**Question 9:** Display the employee names who are working in Mumbai.
 
 ```sql
-SELECT E.ENAME, E.JOB, E.SAL
-FROM EMPLOYEE E
-JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO
-WHERE D.LOC = 'CHICAGO';
+SELECT ENAME
+FROM EMPLOYEE
+WHERE DEPTNO = (
+    SELECT DEPTNO
+    FROM DEPARTMENT
+    WHERE LOC = 'MUMBAI'
+);
 ```
 
 **Output:**
 ```
-+--------+----------+------+
-| ENAME  | JOB      | SAL  |
-+--------+----------+------+
-| ALLEN  | SALESMAN | 1600 |
-| WARD   | SALESMAN | 1250 |
-| MARTIN | SALESMAN | 1250 |
-| BLAKE  | MANAGER  | 2850 |
-| TURNER | SALESMAN | 1500 |
-| JAMES  | CLERK    |  950 |
-+--------+----------+------+
-6 rows in set (0.001 sec)
++--------+
+| ENAME  |
++--------+
+| CLARK  |
+| KING   |
+| MILLER |
++--------+
+3 rows in set (0.001 sec)
 ```
 
 **Question 10:** Display the job groups having total salary greater than the maximum salary for managers.
